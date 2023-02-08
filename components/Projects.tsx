@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import projectImg from '../public/assets/projects/portfolio.png';
 import Image from 'next/image';
 import { Project } from '@/types';
-import { urlFor } from '@/sanity';
+import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
 
 type Props = {

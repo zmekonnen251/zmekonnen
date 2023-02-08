@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import myPhotoSrc from './my-photo.jpg';
 import { Experience } from '@/types';
-import { urlFor } from '@/sanity';
+import { urlFor } from '@/lib/sanity';
 
 type Props = {
 	experience: Experience;

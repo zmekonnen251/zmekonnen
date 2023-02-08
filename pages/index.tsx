@@ -23,7 +23,7 @@ import { fetchExperiences } from '@/utils/fetchExperiences';
 import { fetchSkills } from '@/utils/fetchSkills';
 import { fetchProjects } from '@/utils/fetchProjects';
 import { fetchSocials } from '@/utils/fetchSocials';
-import { urlFor } from '@/sanity';
+import { urlFor } from '@/lib/sanity';
 import { ToastContainer } from 'react-toastify';
 
 type Props = {

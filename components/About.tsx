@@ -5,7 +5,7 @@ import myPhotoSrc from './my-photo.jpg';
 
 import Image from 'next/image';
 import { PageInfo } from '@/types';
-import { urlFor } from '@/sanity';
+import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
 type Props = {
 	pageInfo: PageInfo;

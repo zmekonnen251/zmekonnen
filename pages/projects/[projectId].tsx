@@ -10,7 +10,7 @@ import { Project, Social } from '@/types';
 import { fetchSocials } from '@/utils/fetchSocials';
 import { fetchProjects } from '@/utils/fetchProjects';
 import Head from 'next/head';
-import { urlFor } from '@/sanity';
+import { urlFor } from '@/lib/sanity';
 
 type Props = {
 	project: Project;
