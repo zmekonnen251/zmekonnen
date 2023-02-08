@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-[#ecf0f3] text-gray-600 dark:bg-[rgb(36,36,36)] dark:text-gray-400 tracking-wide;
+	}
+}
+@layer components {
+	.hero-button {
+		@apply cursor-pointer px-6 py-2 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-700 dark:text-gray-500 transition-all hover:border-[#a0a]/80 hover:text-[#a0a]/80 dark:hover:border-[#f7ab0a]/40 dark:hover:text-[#f7ab0a]/40;
+	}
+
+	.contactInput {
+		@apply outline-none text-gray-500 bg-slate-200 dark:bg-slate-400/10 rounded-sm border-b-2 px-6 py-4 border-[#242424]
+	 dark:text-gray-200 placeholder-gray-500 transition-all focus:border-[#f7ab0a]/40 
+    focus:text-[#886315] text-lg	dark:focus:text-[#f7ab0a]/40  hover:border-[#f7ab0a]/40 invalid:border-b-4 invalid:border-red-900 invalid:text-red-500;
+	}
+}
