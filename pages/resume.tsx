@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import { ResumeData } from '@/types';
-import { fetchResumeData } from '@/utils/fetchResumeData';
 import { GetStaticProps } from 'next';
 import { SocialIcon } from 'react-social-icons';
 import Header from '@/components/Header';
