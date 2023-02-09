@@ -162,11 +162,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   socials[]->,
   projects[]->,
 }`;
-	const resumeData: ResumeData = await sanityClient.fetch(query);
+	const resumeData: ResumeData[] = await sanityClient.fetch(query);
 
 	return {
 		props: {
-			resumeData,
+			resumeData: resumeData[0] as ResumeData,
 		},
 
 		//Next.js will attempt to re-generate the page:
