@@ -13,7 +13,7 @@
 /out/
 
 # sanity
-portfolio-backend/node_modules
+portfolio-backend
 
 # production
 /build
