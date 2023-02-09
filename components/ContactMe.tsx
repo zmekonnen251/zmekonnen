@@ -66,17 +66,17 @@ const ContactMe = ({ pageInfo }: Props) => {
 				<div className='space-y-10'>
 					<div className='flex items-center space-x-5 justify-center'>
 						<PhoneIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse' />
-						<p className='text-2xl'>+251-9-24-56-15-27</p>
+						<p className='text-2xl'>{pageInfo.phoneNumber}</p>
 					</div>
 
 					<div className='flex items-center space-x-5 justify-center'>
 						<EnvelopeIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse' />
-						<p className='text-2xl'>mekonnen.zelalem251@gmail.com</p>
+						<p className='text-2xl'>{pageInfo.email}</p>
 					</div>
 
 					<div className='flex items-center space-x-5 justify-center'>
 						<MapPinIcon className='text-[#f7ab0a] h-7 w-7 animate-pulse' />
-						<p className='text-2xl'>123 Developer Lane</p>
+						<p className='text-2xl'>{pageInfo.address}</p>
 					</div>
 				</div>
 
