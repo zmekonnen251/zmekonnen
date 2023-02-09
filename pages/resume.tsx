@@ -5,6 +5,8 @@ import { fetchResumeData } from '@/utils/fetchResumeData';
 import { GetStaticProps } from 'next';
 import { SocialIcon } from 'react-social-icons';
 import Header from '@/components/Header';
+import { groq } from 'next-sanity';
+import { sanityClient } from '@/lib/sanity';
 
 type Props = {
 	resumeData: ResumeData;
@@ -153,7 +155,15 @@ const resume = ({ resumeData }: Props) => {
 export default resume;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-	const resumeData: ResumeData = await fetchResumeData();
+	const query = groq`*[_type == "resume"]{
+  ...,
+  contact[]->,
+  experiences[]->,
+  educations[]->,
+  socials[]->,
+  projects[]->,
+}`;
+	const resumeData: ResumeData = await sanityClient.fetch(query);
 
 	return {
 		props: {
