@@ -1,16 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image';
 import React from 'react';
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
-import { useRouter } from 'next/router';
 import Header from '@/components/Header';
-
 import Link from 'next/link';
 import { Project, Social } from '@/types';
-import { fetchSocials } from '@/utils/fetchSocials';
-import { fetchProjects } from '@/utils/fetchProjects';
 import Head from 'next/head';
-import { urlFor } from '@/lib/sanity';
+import { sanityClient, urlFor } from '@/lib/sanity';
+import { groq } from 'next-sanity';
 
 type Props = {
 	project: Project;
@@ -87,8 +83,14 @@ const ProjectDetailsPage = ({ socials, project }: Props) => {
 export default ProjectDetailsPage;
 
 export const getStaticProps = async ({ params }: any) => {
-	const projects: Project[] = await fetchProjects();
-	const socials: Social[] = await fetchSocials();
+	const projectsQuery = groq`*[_type == "project"]{
+  ...,
+  technologies[]->
+}`;
+	const socialsQuery = groq`*[_type == "social"]`;
+	const projects: Project[] = await sanityClient.fetch(projectsQuery);
+	const socials: Social[] = await sanityClient.fetch(socialsQuery);
+
 	const project = projects.find(
 		(project) => project.slug.current === params?.projectId
 	);
@@ -104,8 +106,12 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 export async function getStaticPaths() {
-	const projects: Project[] = await fetchProjects();
+	const projectsQuery = groq`*[_type == "project"]{
+  ...,
+  technologies[]->
+}`;
 
+	const projects: Project[] = await sanityClient.fetch(projectsQuery);
 	const paths = projects.map((project) => ({
 		params: { projectId: project.slug.current },
 	}));
