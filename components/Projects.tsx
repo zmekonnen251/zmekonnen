@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Project } from '@/types';
 import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 type Props = {
 	projects: Project[];
@@ -28,7 +29,21 @@ const Projects = ({ projects }: Props) => {
 			<h3 className='absolute top-24 uppercase tracking-[20px] text-2xl'>
 				Projects
 			</h3>
-			<div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory  z-20 mt-12 md:mt-32  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+			<ChevronLeftIcon
+				onClick={() => {
+					const el = document.querySelector('.projects-container');
+					el?.scrollBy(-300, 0);
+				}}
+				className='absolute z-50 top-[40%] left-40 transform -translate-y-1/2 h-10 w-10 text-white bg-[#f7ab0a]/80 rounded-full cursor-pointer hover:bg-[#f7ab0a]/100'
+			/>
+			<ChevronRightIcon
+				onClick={() => {
+					const el = document.querySelector('.projects-container');
+					el?.scrollBy(300, 0);
+				}}
+				className='absolute top-[40%] right-40 transform -translate-y-1/2 z-50 h-10 w-10 text-white bg-[#f7ab0a]/80 rounded-full cursor-pointer hover:bg-[#f7ab0a]/100'
+			/>
+			<div className='projects-container relative w-full flex overflow-scroll snap-x snap-mandatory  z-20 mt-12 md:mt-32  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
 				{projects.map((project, idx) => (
 					<div
 						key={project._id}

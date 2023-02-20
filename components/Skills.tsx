@@ -27,9 +27,16 @@ const Skills = ({ skills }: Props) => {
 			</h3>
 
 			<div className='grid grid-cols-4 md:grid-cols-5 gap-5 mt-36  md:mt-48'>
-				{skills.map((skill, idx) => (
-					<Skill key={skill._id} skill={skill} directionLeft={idx % 2 === 0} />
-				))}
+				{skills.map(
+					(skill, idx) =>
+						skill.visible && (
+							<Skill
+								key={skill._id}
+								skill={skill}
+								directionLeft={idx % 2 === 0}
+							/>
+						)
+				)}
 			</div>
 		</motion.div>
 	);
