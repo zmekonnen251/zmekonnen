@@ -34,16 +34,16 @@ const Projects = ({ projects }: Props) => {
 					const el = document.querySelector('.projects-container');
 					el?.scrollBy(-300, 0);
 				}}
-				className='absolute z-50 top-[40%] left-40 transform -translate-y-1/2 h-10 w-10 text-white bg-[#f7ab0a]/80 rounded-full cursor-pointer hover:bg-[#f7ab0a]/100'
+				className='hidden md:block absolute z-50 top-[40%] md:left-10 lg:left-[10%]  transform -translate-y-1/2 h-10 w-10 text-white bg-[#f7ab0a]/80 rounded-full cursor-pointer hover:bg-[#f7ab0a]/100'
 			/>
 			<ChevronRightIcon
 				onClick={() => {
 					const el = document.querySelector('.projects-container');
 					el?.scrollBy(300, 0);
 				}}
-				className='absolute top-[40%] right-40 transform -translate-y-1/2 z-50 h-10 w-10 text-white bg-[#f7ab0a]/80 rounded-full cursor-pointer hover:bg-[#f7ab0a]/100'
+				className='hidden md:block absolute top-[40%] md:right-10 lg:right-[10%] transform -translate-y-1/2 z-50 h-10 w-10 text-white bg-[#f7ab0a]/80 rounded-full cursor-pointer hover:bg-[#f7ab0a]/100'
 			/>
-			<div className='projects-container relative w-full flex overflow-scroll snap-x snap-mandatory  z-20 mt-12 md:mt-32  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
+			<div className='projects-container relative w-full flex overflow-scroll snap-x snap-mandatory  z-20 mt-16 md:mt-32  scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80'>
 				{projects.map((project, idx) => (
 					<div
 						key={project._id}
